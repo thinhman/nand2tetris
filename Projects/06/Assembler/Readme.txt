@@ -1,0 +1,2 @@
+Add the correct directory to the .asm input file in your comouter.
+Create your own text document or use the Prog.hack file as an outputfile but remember to add the correct directory in your computer for the assembler.
