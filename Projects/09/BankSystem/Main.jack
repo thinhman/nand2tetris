@@ -1,0 +1,47 @@
+
+class Main {
+   function void main() {
+      var BankSystem A;
+      var String Name;
+      var int initBalance, num;
+      let num = 1;
+      let Name = Keyboard.readLine("Enter a name for your account: ");
+      let initBalance = Keyboard.readInt("Enter your inital balance: ");
+      let A = BankSystem.new(Name, initBalance);
+      while (num > 0 & num < 5)
+      {
+         do Output.printString("Menu:");
+         do Output.println();
+         do Output.printString("1) Widthdraw");
+         do Output.println();
+         do Output.printString("2) Deposit");
+         do Output.println();
+         do Output.printString("3) Transfer Money To Another Account");
+         do Output.println();
+         do Output.printString("4) Print your Transactions");
+         do Output.println();
+         do Output.printString("5) Exit");
+         do Output.println();
+         let num = Keyboard.readInt("What would you like to do: ");
+         if (num = 1)
+         {
+            do A.widthdraw();
+         }
+         if (num = 2)
+         {
+            do A.deposit();
+         }
+         if (num = 3)
+         {
+            //do A.Transfer();
+         }
+         if (num = 4)
+         {
+            do A.printTransaction();
+         }
+      }
+      return;
+   }
+
+  
+}
