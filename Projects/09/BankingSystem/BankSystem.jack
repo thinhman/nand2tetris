@@ -1,0 +1,99 @@
+
+class BankSystem 
+{
+   field String Name;          
+   field int Balance, count;
+   field Array Type, Amount, bal; 
+   constructor BankSystem new(String name , int balance) 
+   {
+      let Name = name;
+      let Balance = balance;
+      let Type = Array.new(10);
+      let Amount = Array.new(10);
+      let bal = Array.new(10);
+      let count = 0;
+      return this;
+   }
+
+   method void widthdraw()
+   {
+      var int amount;
+      let amount = Keyboard.readInt("Widthdraw Amount: ");
+      if (amount < Balance)
+      {
+         let Balance = Balance - amount;
+         let Type[count] = "Widthdraw";
+         let Amount[count] = amount;
+         let bal[count] = Balance;
+         let count = count + 1;
+      }
+      else
+      {
+         do Output.printString("Insufficent funds");
+         do Output.println();
+      }
+      return;
+   }
+
+   method void deposit()
+   {
+      var int amount;
+      let amount = Keyboard.readInt("Deposit Amount: ");
+      let Type[count] = "Deposit";
+      let Amount[count] = amount;
+      let bal[count] = Balance;
+      let count = count + 1;
+      return;
+   }
+
+   method void Transfer(String accountName)
+   {
+      var int amount;
+      let amount = Keyboard.readInt("Transfer Amount: ");
+      if (amount < Balance)
+      {
+         let Balance = Balance - amount;
+         let Type[count] = accountName;
+         let Amount[count] = amount;
+         let bal[count] = Balance;
+         let count = count + 1;
+      }
+      else
+      {
+         do Output.printString("Insufficent funds");
+         do Output.println();
+      }
+      return;
+   }
+
+   method void printTransaction()
+   {
+      var int num;
+      var String temp;
+      let num = 0;
+      while (num < count)
+      {
+         do Output.printString("Type: ");
+         do Output.printString(Type[num]);
+         do Output.printString("  Amount: ");
+         do Output.printInt(Amount[num]);
+         do Output.printString("  Balance: ");
+         do Output.printInt(bal[num]);
+         let num = num + 1;
+         /*let num = num + 1;
+         do Output.printString("  Account: ");
+         do Output.printString(statements[num]);
+         let num = num + 1;
+         do Output.println();
+         do Output.printString("Amount: ");
+         do Output.printString(statements[num]);
+         let num = num + 1;
+         do Output.printString("  Balance: ");
+         do Output.printString(statements[num]);
+         let num = num + 1;*/
+         do Output.println();
+      }
+      do Keyboard.readLine("PressEnter");
+      return;
+   }
+}

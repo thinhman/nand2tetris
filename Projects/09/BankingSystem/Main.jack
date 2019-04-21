@@ -2,14 +2,22 @@
 class Main {
    function void main() {
       var BankSystem A;
-      var String Name;
-      var int initBalance, num;
+      var String Name, Name1;
+      var int initBalance, num, count, trans;
       let num = 1;
+      let count = 2;
+      let trans = 0;
       let Name = Keyboard.readLine("Enter a name for your account: ");
       let initBalance = Keyboard.readInt("Enter your inital balance: ");
       let A = BankSystem.new(Name, initBalance);
       while (num > 0 & num < 5)
       {
+         let count = count + 7;
+         if (count > 23)
+         {
+            do Screen.clearScreen();
+            let count = 7;
+         }
          do Output.printString("Menu:");
          do Output.println();
          do Output.printString("1) Widthdraw");
@@ -25,20 +33,49 @@ class Main {
          let num = Keyboard.readInt("What would you like to do: ");
          if (num = 1)
          {
+            let count = count + 1;
+            if (count > 23)
+            {
+               do Screen.clearScreen();
+               let count = 1;
+            }
+            let trans = trans + 1;
             do A.widthdraw();
          }
          if (num = 2)
          {
+            let count = count + 1;
+            if (count > 23)
+            {
+               do Screen.clearScreen();
+               let count = 1;
+            }
+            let trans = trans + 1;
             do A.deposit();
          }
          if (num = 3)
          {
-            //do A.Transfer();
+            let count = count + 2;
+            if (count > 23)
+            {
+               do Screen.clearScreen();
+               let count = 2;
+            }
+            let trans = trans + 1;
+            let Name1 = Keyboard.readLine("Who do you want to Transfer to?: ");
+            do A.Transfer(Name1);
          }
          if (num = 4)
          {
+            let count = count + trans;
+            if (count > 23)
+            {
+               do Screen.clearScreen();
+               let count = trans;
+            }
             do A.printTransaction();
          }
+         //do Screen.clearScreen();
       }
       return;
    }
