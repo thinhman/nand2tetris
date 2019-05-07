@@ -17,7 +17,6 @@ public class JackTokenizer
     public ArrayList<String> tokens;
     public String currentToken, currentType, cKeyWord, cIdentifier, cStringVal, cIntVal;
     public char cSymbol;
-    public String num;
     public int index;
     
     public JackTokenizer(File inFile) 
@@ -65,7 +64,6 @@ public class JackTokenizer
         symbols.add("=");
         symbols.add("-");
         symbols.add("~");
-        num = "0123456789";
         code = "";
         current = "";
         try 
